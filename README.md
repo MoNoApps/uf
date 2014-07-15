@@ -11,7 +11,18 @@ With this package you can use the next Unfuddle API endpoints:
 ````js
 npm install uf
 
-var uf = requiere('uf')
+var Unfuddle = require('uf').Unfuddle;
+
+var user = "my_user";
+var passwd = "my_passwd";
+var domain = "my_domain";
+
+uf =  new uf(user, passwd, domain);
+
+//retrieve project list
+uf.project.find(function(data, err){
+	console.log({data: data, err: err});
+})
 ````
 
 
