@@ -17,6 +17,9 @@ var uf = requiere('uf')
 
 ### Test file
 Write your own credentials to:
+```bash
+credentials.json
+```
 
 ```json
 {
@@ -25,4 +28,8 @@ Write your own credentials to:
   "domain": "my_domain"
 }
 
+```
+Run:
+```bash
+mocha
 ```
