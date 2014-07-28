@@ -2,17 +2,16 @@
 var Zugmaschine = require('../utils/zugmaschine').Zugmaschine;
 
 var Project = function(config){
+  this.zm = new Zugmaschine(config);
   this.config = config;
 };
 
 Project.prototype.find = function(cb){
 
-  var zm = new Zugmaschine(this.config);
-  var options =  zm.options;
-  options.method = 'GET';
-  options.path = '/api/v1/projects';
+  this.zm.options.method = 'GET';
+  this.zm.options.path = '/api/v1/projects';
 
-  zm.exec(options,function(data, err){
+  this.zm.exec(this.zm.options,function(data, err){
     cb(data || [],err);
   });
 
@@ -20,12 +19,10 @@ Project.prototype.find = function(cb){
 
 Project.prototype.findOne = function(id, cb){
 
-  var zm = new Zugmaschine(this.config);
-  var options =  zm.options;
-  options.method = 'GET';
-  options.path = '/api/v1/projects' + id;
+  this.zm.options.method = 'GET';
+  this.zm.options.path = '/api/v1/projects' + id;
 
-  zm.exec(options,function(data, err){
+  this.zm.exec(this.zm.options,function(data, err){
     cb(data,err);
   });
 
@@ -33,12 +30,10 @@ Project.prototype.findOne = function(id, cb){
 
 Project.prototype.findOne = function(id, cb){
 
-  var zm = new Zugmaschine(this.config);
-  var options =  zm.options;
-  options.method = 'GET';
-  options.path = '/api/v1/projects' + id;
+  this.zm.options.method = 'GET';
+  this.zm.options.path = '/api/v1/projects' + id;
 
-  zm.exec(options,function(data, err){
+  this.zm.exec(this.zm.options,function(data, err){
     cb(data,err);
   });
 
@@ -46,13 +41,11 @@ Project.prototype.findOne = function(id, cb){
 
 Project.prototype.insert = function(project, cb){
 
-  var zm = new Zugmaschine(this.config);
-  var options =  zm.options;
-  options.method = 'POST';
-  options.path = '/api/v1/projects';
-  options.body = project;
+  this.zm.options.method = 'POST';
+  this.zm.options.path = '/api/v1/projects';
+  this.zm.options.body = project;
 
-  zm.exec(options,function(data, err){
+  this.zm.exec(this.zm.options,function(data, err){
     cb(data,err);
   });
 
@@ -60,13 +53,11 @@ Project.prototype.insert = function(project, cb){
 
 Project.prototype.update = function(project, cb){
 
-  var zm = new Zugmaschine(this.config);
-  var options =  zm.options;
-  options.method = 'PUT';
-  options.path = '/api/v1/projects';
-  options.body = project;
+  this.zm.options.method = 'PUT';
+  this.zm.options.path = '/api/v1/projects';
+  this.zm.options.body = project;
 
-  zm.exec(options,function(data, err){
+  this.zm.exec(this.zm.options,function(data, err){
     cb(data,err);
   });
 

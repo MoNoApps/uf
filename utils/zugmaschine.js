@@ -19,18 +19,18 @@ var Zugmaschine = function(config){
   * Process request.
   */
 Zugmaschine.prototype.exec = function(options, cb){
-  console.log('HTTPS ' + options.method + ' ' + options.path )
-  var req = https.request(options, function(res,b,c,d) {
+
+  var req = https.request(options, function(res) {
     var data = '';
     res.on('data', function(d) {
       data += d;
     });
 
     res.on('end', function() {
-      if (res.statusCode == '200') {
+      if (res.statusCode === 200) {
         cb(JSON.parse(data), false);
       } else {
-          if(typeof cb == 'function'){
+          if(typeof cb === 'function'){
             cb(false, {message: 'Status code ' + res.statusCode});
           }
       }
