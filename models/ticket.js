@@ -20,17 +20,6 @@ Ticket.prototype.find = function(id, cb){
 Ticket.prototype.findOne = function(id, pid, cb){
 
   this.zm.options.method = 'GET';
-  this.zm.options.path = '/api/v1/projects/' + pid + '/tickets' + id;
-
-  this.zm.exec(this.zm.options,function(data, err){
-    cb(data,err);
-  });
-
-};
-
-Ticket.prototype.findOne = function(id, pid, cb){
-
-  this.zm.options.method = 'GET';
   this.zm.options.path = '/api/v1/projects/' + pid +
                  '/tickets' + id;
 
