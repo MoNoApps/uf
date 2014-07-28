@@ -1,4 +1,5 @@
 ## NPM for Unfuddle
+[![Code Climate](https://codeclimate.com/github/MoNoApps/uf.png)](https://codeclimate.com/github/MoNoApps/uf)
 With this package you can use the next Unfuddle API endpoints:
 ```bash
 /api/v1/projects
