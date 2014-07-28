@@ -28,17 +28,6 @@ Project.prototype.findOne = function(id, cb){
 
 };
 
-Project.prototype.findOne = function(id, cb){
-
-  this.zm.options.method = 'GET';
-  this.zm.options.path = '/api/v1/projects' + id;
-
-  this.zm.exec(this.zm.options,function(data, err){
-    cb(data,err);
-  });
-
-};
-
 Project.prototype.insert = function(project, cb){
 
   this.zm.options.method = 'POST';
